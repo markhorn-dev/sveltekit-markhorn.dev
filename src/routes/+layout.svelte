@@ -91,7 +91,7 @@
     {#key data.pathname}
         <main in:slideIn out:foldOut>
             <div id="page" class="page" on:scroll={onPageScroll}>
-                {data.SECRET_KEY}
+                {data.RESEND_KEY}
                 <slot />
                 <Footer />
             </div>
