@@ -9,7 +9,7 @@ export async function load({ params }) {
 
     try {    
         //load the json data
-        const testFile = path.resolve(process.cwd(),'.data/projects',params.slug, 'project.json');
+        const testFile = path.resolve('.data/projects', params.slug, 'project.json');
         console.log(testFile);
         const testJson = await fs.readFile(testFile,"utf8");
         const parsedJson = JSON.parse(testJson);
