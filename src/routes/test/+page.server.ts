@@ -2,17 +2,12 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export async function load() {
-    //nope
-    //const file = path.resolve('static', 'testProject.json');
-    
-    const file = path.join(process.cwd(), 'static', 'testProject.json');
-
-    console.log(file);
-    const json = await fs.readFile('src/routes/test/testProject.json', 'utf8');
-    const parsed = JSON.parse(json);
-    console.log(parsed);
-    
+    const file = path.join(process.cwd(), 'posts', 'test.json');
+    const data = fs.readFile(file, 'utf8');
+    console.log(file)
     return {
-        parsed
-    }
-}
+      props: {
+        data,
+      },
+    };
+  }

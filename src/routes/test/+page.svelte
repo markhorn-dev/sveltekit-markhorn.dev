@@ -3,8 +3,7 @@
 </script>
 
 <div class="test container">
-    <h1>{data.parsed.title}</h1>
-    <h4>{data.parsed.description}</h4>
+    <code>{data}</code>
 </div>
 
 <style>

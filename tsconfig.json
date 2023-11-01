@@ -11,6 +11,9 @@
 		"strict": true,
 		"outDir": "dist"
 	},
+	"include": [
+		"posts"
+	],
 	"exclude": [
 		"node_modules"
 	]}
