@@ -9,20 +9,13 @@ export async function load({ params }) {
 
     try {    
         //load the json data
-        const testFile = path.resolve('.data/projects', params.slug, 'project.json');
-        console.log(testFile);
-        const testJson = await fs.readFile(testFile,"utf8");
-        const parsedJson = JSON.parse(testJson);
-        console.log(testJson);
-        // const jsonFile = '/.data/projects/'+ params.slug + 'project.json' + 'utf8';
-        // //const jsonFile = path.join(process.cwd(), '.data/projects', params.slug, 'project.json');
-        // const jsonData = await fs.readFile(process.cwd() + jsonFile, 'utf-8');
-        
+        const jsonFile = path.join(process.cwd(), '.data/projects', params.slug, 'project.json');
+        const jsonData = await fs.readFile(process.cwd() + jsonFile, 'utf-8');
+        const parsedJson = JSON.parse(jsonData)
 
         //load the markdown data
-        //const markdownFile = path.join(process.cwd(), '.data/projects', params.slug, 'project.md');
-        //const markdownData = await compileMarkdown(markdownFile);
-        const markdownData = '';
+        const markdownFile = path.join(process.cwd(), '.data/projects', params.slug, 'project.md');
+        const markdownData = await compileMarkdown(markdownFile);
         
         //assemble the article
         const project: Project = parsedJson;

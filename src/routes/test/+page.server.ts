@@ -8,7 +8,7 @@ export async function load() {
     const file = path.join(process.cwd(), 'static', 'testProject.json');
 
     console.log(file);
-    const json = await fs.readFile(file, 'utf8');
+    const json = await fs.readFile('src/routes/test/testProject.json', 'utf8');
     const parsed = JSON.parse(json);
     console.log(parsed);
     
