@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-
+import { RESEND_KEY } from '$env/static/private';
 
 export async function POST({ request }) {
     const requestBody = await request.json();
@@ -11,10 +11,8 @@ export async function POST({ request }) {
     if (subject.length < 1) errors.push({subject:true})
     if (message.length < 1) errors.push({message:true})
 
-    // TODO .env for resend and vercel
-
     if (errors.length == 0) {
-        const resend = new Resend('re_ZsfMePro_BwVvWbTho2MNJtgLepQSVdik');
+        const resend = new Resend(RESEND_KEY);
         try {
             const response = await resend.sendEmail({
                 from: 'Mark Horn <onboarding@resend.dev>', //linkto markhorn.dev later

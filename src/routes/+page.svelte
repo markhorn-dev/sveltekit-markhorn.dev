@@ -78,22 +78,6 @@
         width: 33%;
     }
 
-    .about {
-        
-    }
-
-    .skills {
-
-    }
-
-    .experience {
-
-    }
-
-    .contact {
-
-    }
-
     h1, h2 {
         font-family: 'Antonio Variable', sans-serif;
     }
