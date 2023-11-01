@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "node scripts/sync-data.js && vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -12,6 +12,8 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
+		"@types/node": "^20.8.8",
+		"mdsvex": "^0.11.0",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
 		"tslib": "^2.4.1",
@@ -20,7 +22,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/antonio": "^5.0.17",
 		"@fontsource/fira-mono": "^5.0.8",
-		"@fontsource/inter": "^5.0.15"
+		"@fontsource/inter": "^5.0.15",
+		"fs-extra": "^11.1.1",
+		"resend": "^1.1.0"
 	}
 }
