@@ -1,8 +1,7 @@
 ---
 layout: post
+title: My First Post
 ---
-
-# Post 1
 
 ```js
 function helloWorld() {

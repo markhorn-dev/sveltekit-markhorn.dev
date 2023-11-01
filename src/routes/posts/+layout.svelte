@@ -1,8 +1,9 @@
-<script>
-
+<script lang="ts">
+    export let title  = '';
 </script>
 
 <div class="container">
+    <h1>{title}</h1>
     <slot/>
 </div>
 
