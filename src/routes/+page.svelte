@@ -116,4 +116,10 @@
         background-color: #444;
         border: 1px solid #666;
     }
+
+    @media (max-width: 600px) {
+        .hero p {
+            width: 66%;
+        }
+    }
 </style>

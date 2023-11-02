@@ -18,7 +18,10 @@
     });
 
     afterNavigate(({}) => {
-        setTimeout(() => { navigating = false }, 1000);
+        setTimeout(() => { 
+            navigating = false 
+            scrolled.update(scrolled => false);
+        }, 1000);
     })
 
     onMount(() => {
