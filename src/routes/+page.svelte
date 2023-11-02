@@ -79,11 +79,14 @@
     }
 
     h1, h2 {
+        text-align: center;
         font-family: 'Antonio Variable', sans-serif;
     }
 
     h1 {
+        
         font-size: 4rem;
+        line-height: 1.5;
         border-bottom: 1px solid grey;
     }
 
@@ -93,6 +96,7 @@
     }
 
     p {
+        overflow-wrap: normal;
         margin-top: .5rem;
     }
 

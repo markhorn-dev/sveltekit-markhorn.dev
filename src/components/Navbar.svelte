@@ -50,8 +50,8 @@
     }}>
         <div class="panel" class:scrolled={$scrolled}>
             <div class="left">
-                <a href="/">
-                    <img src={brand} height={28} alt=""/>
+                <a href="/" class="brand">
+                    <img class="brand" src={brand} height={28} alt=""/>
                 </a>
             </div>
             <div class="center">
@@ -70,13 +70,15 @@
                     Resume
                 </a>
                 {#if $drawerOpen || windowWidth < 768}
-                    <button class="drawer" on:click={toggleDrawer}>
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-interactive-supports-focus -->
+                    <div class="drawer-btn" on:click={toggleDrawer} role="button">
                         {#if $drawerOpen}
                             <img src={close} alt=""/>
                         {:else}
                             <img src={burger} alt=""/>
                         {/if}
-                    </button>
+                    </div>
                 {/if}
             </div>
         </div> 
@@ -146,8 +148,6 @@
         background-color: aqua;
     }
 
-
-
     .resume:hover {
         background-color: #333;
         background-color: white;
@@ -166,7 +166,20 @@
         transition: 300ms ease all;
     }
 
-    button.drawer > img {
+    .drawer-btn {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        background-color: #111;
+        border: 1px solid #333;
+        cursor: pointer;
+        transition: 300ms ease all;
+    }
+
+    button.drawer img {
         width: 16px;
         height: 16px;
         min-height: 16px;
