@@ -23,11 +23,9 @@
 
     onMount(() => {
         window.addEventListener('resize', function() {
-            windowWidth = window.innerWidth
-            console.log('Window Width:', windowWidth);
+            windowWidth = window.innerWidth;
         });
         windowWidth = window.innerWidth;
-        console.log('Window Width:', windowWidth);
     })
 
     function toggleDrawer(event: Event) {
@@ -74,9 +72,9 @@
                 {#if $drawerOpen || windowWidth < 768}
                     <button class="drawer" on:click={toggleDrawer}>
                         {#if $drawerOpen}
-                            <img src={close} width={16} height={16} alt=""/>
+                            <img src={close} alt=""/>
                         {:else}
-                            <img src={burger} width={16} height={16} alt=""/>
+                            <img src={burger} alt=""/>
                         {/if}
                     </button>
                 {/if}
@@ -127,6 +125,7 @@
         justify-content: center;
         flex-direction: row;
         gap: 5px;
+        margin-right: 5px;
     }
 
     .resume {
@@ -165,6 +164,14 @@
         border: 1px solid #333;
         cursor: pointer;
         transition: 300ms ease all;
+    }
+
+    button.drawer > img {
+        width: 16px;
+        height: 16px;
+        min-height: 16px;
+        max-height: 16px;
+
     }
 
     button.drawer:hover {

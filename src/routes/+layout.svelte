@@ -119,6 +119,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #161616;
     }
 
     .page {

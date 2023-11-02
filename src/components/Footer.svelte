@@ -106,6 +106,7 @@
     .copy {
         color: var(--grey);
         grid-column: span 2;
+        font-size: 0.85rem;
     }
 
 	.status .text {

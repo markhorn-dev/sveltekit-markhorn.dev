@@ -46,7 +46,7 @@
         <h2>SOFTWARE ENGINEER</h2>
         <!-- <p>Motivated by challenging projects with self-guided research and dynamic problem solving.</p> -->
         <p>Currently designing products for humans.</p>
-        <button>Explore galaxy</button>
+        <!-- <button>Explore</button> -->
     </section>
 </div>
 
