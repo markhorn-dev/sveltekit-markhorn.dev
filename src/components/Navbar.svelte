@@ -13,7 +13,8 @@
     let windowWidth: number = 0;
 
     beforeNavigate(({ to, from, cancel }) => {
-        navigating = true;
+        if (from?.route.id != to?.route.id)
+            navigating = true;
     });
 
     afterNavigate(({}) => {

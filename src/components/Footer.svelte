@@ -36,9 +36,9 @@
             </div>
             <div class="flex column">
                 <h3>Social</h3>
-                <a href={socialmedia.linkedin}>LinkedIn</a>
-                <a href={socialmedia.github}>Github</a>
-                <a href={socialmedia.twitterx}>TwitterX</a>
+                <a href={socialmedia.linkedin} target="_blank">LinkedIn</a>
+                <a href={socialmedia.github} target="_blank">Github</a>
+                <a href={socialmedia.twitterx} target="_blank">TwitterX</a>
             </div>
             <div class="flex column">
                 <h3>Featured</h3>
