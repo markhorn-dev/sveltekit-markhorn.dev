@@ -3,22 +3,23 @@
 </script>
 
 <svelte:head>
-    <title>markhorn.dev | Terms and Conditions</title>
-    <meta name="description" content="markhorn.dev terms and conditions">
+    <title>markhorn.dev | {data.document.title}</title>
+    <meta name="description" content={data.document.description}>
 </svelte:head>
 
-<div class="terms container">
+<div class="document container">
     <div class="topper">
-        <h1>Terms and Conditions</h1>
-        <p>The legal terms and conditions of markhorn.dev.</p>
+        <h1>{data.document.title}</h1>
+        <p>{data.document.description}</p>
     </div>
     <div class="markdown">
-        <div class="content">{@html data.markdown}</div>
+        <div class="content">{@html data.document.body}</div>
+        <div class="bottom">Last updated: {data.document.lastUpdated}</div>
     </div>
 </div>
 
 <style>
-    .terms {
+    .document {
         flex: 1;
         width: 100%;
         padding: 8rem 1.5rem;
@@ -38,6 +39,14 @@
         border-radius: var(--border-radius-outer);
         margin: 0 auto;
         max-width: 768px;
+    }
+
+    .bottom {
+        margin: .75rem auto;
+        max-width: 768px;
+        display: flex;
+        justify-content: flex-end;
+        color: #888;
     }
 </style>
 

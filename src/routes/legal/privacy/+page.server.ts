@@ -1,9 +1,14 @@
-import { compileMarkdown } from "$lib/markdown";
+import { documents } from "$lib/documents.js";
+import { error } from '@sveltejs/kit'
 
 export async function load() {
-    let data = await compileMarkdown('.docs/privacy.md');
-    let markdown = data
+    const document = documents.find((doc) => doc.title.toLowerCase().includes('privacy'));
+
+    if (!document) {
+        throw error(404, 'Not Found')
+    }
+
     return {
-        markdown
-    };
+        document
+    }
 }

@@ -1,3 +1,9 @@
+---
+title: Privacy Policy
+description: Your privacy is of utmost importance.
+lastUpdated: 10/28/2023
+---
+
 ### About This Website
 
 markhorn.dev is operated solely by Mark Horn, which provides information about personal and software development topics as well as showcasing projects, articles and code snippets.

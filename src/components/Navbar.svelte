@@ -7,15 +7,10 @@
     import { circInOut } from 'svelte/easing';
     import { afterNavigate } from '$app/navigation';
     import { beforeNavigate } from '$app/navigation'
-
-    // TODO links and resume button visible status when drawer is open
-    // store
-    
-    
-
-    
+    import { onMount } from 'svelte';
 
     let navigating: boolean = false;
+    let windowWidth: number = 0;
 
     beforeNavigate(({ to, from, cancel }) => {
         navigating = true;
@@ -25,12 +20,17 @@
         setTimeout(() => { navigating = false }, 1000);
     })
 
+    onMount(() => {
+        window.addEventListener('resize', function() {
+            windowWidth = window.innerWidth
+            console.log('Window Width:', windowWidth);
+        });
+        windowWidth = window.innerWidth;
+        console.log('Window Width:', windowWidth);
+    })
+
     function toggleDrawer(event: Event) {
         drawerOpen.update(drawerOpen => !drawerOpen);
-    }
-
-    function downloadResume() {
-        console.log('download resume')
     }
 
     const links = [
@@ -56,25 +56,29 @@
                 </a>
             </div>
             <div class="center">
-                <ul class="links">           
-                    {#each links as link}
-                        <li>
-                            <a href={link.url}>{link.name}</a>
-                        </li>
-                    {/each} 
+                <ul class="links"> 
+                    {#if !$drawerOpen}          
+                        {#each links as link}
+                            <li>
+                                <a href={link.url}>{link.name}</a>
+                            </li>
+                        {/each} 
+                    {/if}
                 </ul>
             </div>
             <div class="right">
-                <button class="resume" on:click={downloadResume}>
+                <a class="resume" href="/resume.pdf" download>
                     Resume
-                </button>
-                <button class="drawer" on:click={toggleDrawer}>
-                    {#if $drawerOpen}
-                        <img src={close} width={16} height={16} alt=""/>
-                    {:else}
-                        <img src={burger} width={16} height={16} alt=""/>
-                    {/if}
-                </button>
+                </a>
+                {#if $drawerOpen || windowWidth < 768}
+                    <button class="drawer" on:click={toggleDrawer}>
+                        {#if $drawerOpen}
+                            <img src={close} width={16} height={16} alt=""/>
+                        {:else}
+                            <img src={burger} width={16} height={16} alt=""/>
+                        {/if}
+                    </button>
+                {/if}
             </div>
         </div> 
     </nav>
@@ -117,16 +121,14 @@
     .right {
         right: 0;
         position: absolute;
-        margin-right: 5px;
         align-items: center;
         display: flex;
         justify-content: center;
         flex-direction: row;
-        margin-right: 5px;
         gap: 5px;
     }
 
-    button.resume {
+    .resume {
         display: flex;
         height: 40px;
         color: #FFF;
@@ -144,13 +146,15 @@
         background-color: aqua;
     }
 
-    button.resume:hover {
+
+
+    .resume:hover {
         background-color: #333;
         background-color: white;
     }
 
     button.drawer {
-        display: none;
+        display: flex;
         height: 40px;
         width: 40px;
         align-items: center;
@@ -158,7 +162,6 @@
         border-radius: 40px;
         background-color: #111;
         border: 1px solid #333;
-
         cursor: pointer;
         transition: 300ms ease all;
     }
@@ -197,9 +200,6 @@
         }
         button.drawer {
             display: flex;
-        }
-        button.resume {
-            display: none;
         }
     }
 </style>

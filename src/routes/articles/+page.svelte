@@ -75,7 +75,7 @@
             {#each articles as article}
                 <li class="article">
                     <a href={"/articles/" + article.slug}>
-                        <h5>{article.published}</h5>
+                        <h5>{article.datePublished}</h5>
                         <h3>{article.title}</h3>
                         <p>{article.description}</p>
                         <ul class="tags">

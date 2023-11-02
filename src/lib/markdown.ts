@@ -8,8 +8,6 @@ export async function compileMarkdown(url: string) {
         return await compile(data, {}).then(x => {
             let markdown = x?.code || '';
 
-            // TODO fix image paths in markdown to static, etc
-            
             markdown = markdown.replaceAll("{@html `", "").replaceAll("</code>`}</pre>", "</code></pre>"); 
             return markdown;
         });

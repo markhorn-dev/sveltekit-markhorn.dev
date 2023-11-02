@@ -16,8 +16,7 @@
         { name: 'Home', url: '/' },
         { name: 'Projects', url: '/projects' },
         { name: 'Articles', url: '/articles' },
-        { name: 'Contact', url: '/contact' },
-        { name: 'Resume', url: '/resume' }
+        { name: 'Contact', url: '/contact' }
     ]
 </script>
 

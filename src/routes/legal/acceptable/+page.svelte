@@ -3,17 +3,18 @@
 </script>
 
 <svelte:head>
-    <title>markhorn.dev | Acceptable Use</title>
-    <meta name="description" content="markhorn.dev acceptable use policy">
+    <title>markhorn.dev | {data.document.title}</title>
+    <meta name="description" content={data.document.description}>
 </svelte:head>
 
 <div class="acceptable container">
     <div class="topper">
-        <h1>Acceptable Use Policy</h1>
-        <p>The acceptable use policy of markhorn.dev.</p>
+        <h1>{data.document.title}</h1>
+        <p>{data.document.description}</p>
     </div>
     <div class="markdown">
-        <div class="content">{@html data.markdown}</div>
+        <div class="content">{@html data.document.body}</div>
+        <div class="bottom">Last updated: {data.document.lastUpdated}</div>
     </div>
 </div>
 
@@ -38,6 +39,14 @@
         border-radius: var(--border-radius-outer);
         margin: 0 auto;
         max-width: 768px;
+    }
+
+    .bottom {
+        margin: .75rem auto;
+        max-width: 768px;
+        display: flex;
+        justify-content: flex-end;
+        color: #888;
     }
 </style>
 

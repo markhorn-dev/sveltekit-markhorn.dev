@@ -10,7 +10,7 @@
 </script>
 
 <div class="article container">
-    <p>{data.article.published}</p>
+    <p class="date">{data.article.datePublished}</p>
     <h1>{data.article.title}</h1>
     <p>{data.article.description}</p>
     <ul class="stack">
@@ -19,7 +19,7 @@
         {/each}
     </ul>
     <div class="content">
-        {@html data.article.content}
+        {@html data.article.body}
     </div>
 </div>
 
@@ -55,6 +55,10 @@
         margin-top: 2rem;
         padding-top: 2rem;
         border-top: 1px solid #333;
+    }
+
+    p.date {
+        font-size: 0.875rem;
     }
 
 </style>

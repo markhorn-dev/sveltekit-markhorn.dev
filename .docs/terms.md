@@ -1,8 +1,14 @@
+---
+title: Terms and Conditions
+description: Governing law regarding user conduct and content usage.
+lastUpdated: 10/07/2023
+---
+
 ### 1. Acceptance of Terms
 By accessing this website, you agree to abide by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
 
 ### 2. Use of Content
-All content, including but not limited to articles, images, and projects, displayed on this website is the property of [Your Name] and is protected by copyright laws. You may not modify, reproduce, or distribute the content without explicit permission from the owner.
+All content, including but not limited to articles, images, and projects, displayed on this website is the property of Mark Horn (markhorn.dev) and is protected by copyright laws. You may not modify, reproduce, or distribute the content without explicit permission from the owner.
 
 ### 3. User Conduct
 You agree not to engage in any of the following activities while using this website:

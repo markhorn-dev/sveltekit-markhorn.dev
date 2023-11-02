@@ -1,3 +1,9 @@
+---
+title: Acceptable Use Policy
+description: An outline of acceptable practices and behavior.
+lastUpdated: 09/13/2023
+---
+
 ### About this Policy
 
 This Acceptable Use Policy (AUP) outlines the acceptable practices and behavior when using markhorn.dev (the "Website"), operated by Mark Horn. By accessing or using the Website, you agree to comply with this AUP. Violating this policy may result in the suspension or termination of your access to the Website.
