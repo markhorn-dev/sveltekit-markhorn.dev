@@ -8,12 +8,7 @@ const config = {
 	extensions: ['.svelte', '.svx', '.md'],
 	preprocess: [
 		vitePreprocess(),
-		mdsvex({
-			extensions: ['.md', '.svx'],
-			layout: {
-				post: "./src/routes/posts/+layout.svelte"
-			}
-		})
+		mdsvex({extensions: ['.md', '.svx']})
 	],
 	kit: {
 		adapter: adapter()

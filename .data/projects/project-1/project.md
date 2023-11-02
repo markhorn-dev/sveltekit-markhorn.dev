@@ -1,3 +1,11 @@
+---
+title: Project One
+description: Lorem ipsum dolor sit amet, ne vix dicant lucilius, duo graeci accumsan petentium ne.
+datePublished: 9/1/2023
+tags: [Sveltekit, Typescript, Javascript]
+liveURL: http://www.example.com/project-1
+githubURL: https://github.com/username/project-1
+---
 ### Inline Code
 
 You can use backticks to highlight `inline code`.

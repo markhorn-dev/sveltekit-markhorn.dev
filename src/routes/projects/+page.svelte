@@ -1,7 +1,5 @@
 <script>
     export let data;
-
-    //sticky info column
 </script>
 
 <svelte:head>
@@ -18,8 +16,8 @@
     <ul class="projects">
         {#each data.projects as project}
             <li class="project">
-                <a href={"/projects/" + project.slug}>
-                    <img src={'images/projects/'+project.slug+'/project.jpg'} alt=""/>
+                <a href={project.href}>
+                    <img src={project.imgURL} alt=""/>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
                     <ul class="tags">
