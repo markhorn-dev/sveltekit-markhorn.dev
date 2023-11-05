@@ -66,6 +66,7 @@
         border-top: 1px solid #333;
         background-color: #111;
         z-index: 1;
+        position: relative;
     }
 
     .outer-grid {

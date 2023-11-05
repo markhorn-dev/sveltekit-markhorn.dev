@@ -7,6 +7,7 @@
     export let data;
     import LiveLink from '$lib/images/live-link.svg';
     import GithubLink from '$lib/images/github-link.svg';
+    import "../../../css/markdown.css";
 </script>
 
 <div class="article container">
@@ -18,7 +19,7 @@
             <li>{tag}</li>
         {/each}
     </ul>
-    <div class="content">
+    <div class="content markdown">
         {@html data.article.body}
     </div>
 </div>

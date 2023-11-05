@@ -36,9 +36,9 @@ code[class*="language-"] *::selection {
 
 pre[class*="language-"] {
 	padding: 1em;
-	margin: .5em 0;
+	margin: 1em 0;
 	overflow: auto;
-	background: #1e1e1e;
+	background: #1a1a1a;
 }
 
 :not(pre) > code[class*="language-"] {

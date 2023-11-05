@@ -5,8 +5,8 @@
     import '@fontsource-variable/antonio';
     import "../css/reset.css";
     import "../css/style.css";
-    import "../css/markdown.css";
     import "../css/vscode-dark.css";
+    import "../css/markdown.css";
     import Navbar from "../components/Navbar.svelte";
     import Footer from "../components/Footer.svelte";
     import Drawer from "../components/Drawer.svelte";
@@ -94,7 +94,7 @@
                 <slot />
                 <Footer />
             </div>
-        </main>
+        </main>     
     {/key}
 </div>
 

@@ -1,5 +1,25 @@
-.markdown h1{
-    color: red;
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    margin-top: 2rem;
+    padding: 0;
+    color: white;
 }
 
+.markdown p, .markdown li {
+    margin: 1rem 0;
+    color: #999;
+}
+
+.markdown pre {
+    border: 1px #444 solid;
+    border-radius: 12px;    
+}
+
+img {
+    border-radius: 12px;
+}
 
