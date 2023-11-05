@@ -5,14 +5,14 @@ datePublished: 11/1/2023
 tags: [ Svelte, React, JavaScript ]
 ---
 
-![](http://localhost:5173/images/articles/react-vs-svelte/article.png)
+![](/images/articles/react-vs-svelte/article.png)
 
 ## Introduction
 
 Svelte and React are both popular JavaScript frameworks for building user interfaces, each with its own set of strengths and weaknesses. Choosing between them can significantly impact your development experience and the performance of your applications. In this article, we will explore the pros and cons of Svelte and React to help you make an informed decision when selecting the right framework for your next project.
 
 ##  React: The Pros and Cons
-![](http://localhost:5173/images/articles/react-vs-svelte/react.png)
+![](/images/articles/react-vs-svelte/react.png)
 
 ### Pros of React:
 
@@ -43,7 +43,7 @@ Svelte and React are both popular JavaScript frameworks for building user interf
    React's ecosystem and the need to grasp concepts like JSX, state management, and component lifecycle can make the framework more challenging for beginners to learn.
 
 ## Svelte: The Pros and Cons
-![](http://localhost:5173/images/articles/react-vs-svelte/svelte.png)
+![](/images/articles/react-vs-svelte/svelte.png)
 
 ### Pros of Svelte:
 
