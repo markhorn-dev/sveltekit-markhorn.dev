@@ -7,7 +7,11 @@
     export let data;
     import LiveLink from '$lib/images/live-link.svg';
     import GithubLink from '$lib/images/github-link.svg';
+    import { fly } from 'svelte/transition';
     import "../../../css/markdown.css";
+    import { onMount } from 'svelte';
+    let loaded = false;
+    onMount(() => loaded = true)
 </script>
 
 <div class="article container">
@@ -19,9 +23,16 @@
             <li>{tag}</li>
         {/each}
     </ul>
-    <div class="content markdown">
-        {@html data.article.body}
-    </div>
+    {#key loaded}
+        <div in:fly={{
+            y: 200,
+            delay: 800,
+        }}>
+            <div class="content markdown">
+                {@html data.article.body}
+            </div>
+        </div>
+    {/key}
 </div>
 
 <style>

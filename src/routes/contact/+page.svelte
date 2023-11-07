@@ -9,6 +9,8 @@
     import twitterx from '$lib/images/twitterx.svg';
     import { socialmedia } from '$lib/socialmedia';
     import { onMount } from 'svelte';
+    import { fly, slide, scale, draw } from 'svelte/transition';
+    import { elasticInOut } from 'svelte/easing';
 
     function initializeForm() {
         return {
@@ -84,6 +86,8 @@
         isSubmitting = false;
     }
 
+    let loaded = false;
+
     onMount(() => {
         const textArea = document.getElementById("message");
         if(textArea) {
@@ -92,6 +96,7 @@
                 this.style.height = (this.scrollHeight + 2) + "px";
             });
         }
+        loaded = true;
     })
 
     function resetTextArea() {
@@ -108,20 +113,39 @@
         <div class="info">
             <h1>Let's Connect</h1>
             <p>Reach out to me on social media, or send an email here.</p>
+            {#key loaded}
             <div class="social">
-                <a href={socialmedia.linkedin} target="_blank">
+                <a href={socialmedia.linkedin} target="_blank" in:scale={{
+                    start: 0.5,
+                    delay: 1000,
+                    duration: 500
+                }}>
                     <img src={linkedin} height={32} alt="link to mark horn's linkedin account"/>
                 </a>
-                <a href={socialmedia.github} target="_blank">
+                <a href={socialmedia.github} target="_blank" in:scale={{
+                    start: 0.5,
+                    delay: 1100,
+                    duration: 500
+                }}>
                     <img src={github} height={32} alt="link to mark horn's github account"/>
                 </a>
-                <a href={socialmedia.twitterx} target="_blank">
+                <a href={socialmedia.twitterx} target="_blank" in:scale={{
+                    start: 0.5,
+                    delay: 1200,
+                    duration: 500
+                }}>
                     <img src={twitterx} height={32} alt="link to mark horn's twitter X account"/>
                 </a>
             </div>
+            {/key}
         </div>
 
-        <form on:submit={onSubmit}>
+        {#key loaded}
+        <form on:submit={onSubmit} in:fly={{
+                        x: 200,
+                        delay: 800,
+                        duration: 500
+                    }}>
             {#if successful}
                 <div class="successful">
                     <div>Your email has been sent successfully.</div>
@@ -156,6 +180,7 @@
             {/if}
             <button type="submit" disabled={(form.error && !form.valid) || isSubmitting}>Submit</button>
         </form>
+        {/key}
     </div>
 </div>
 

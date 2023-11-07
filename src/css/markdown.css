@@ -9,8 +9,13 @@
     color: white;
 }
 
-.markdown p, .markdown li {
+.markdown p {
     margin: 1rem 0;
+    color: #999;
+}
+
+.markdown li {
+    margin: .5rem 0;
     color: #999;
 }
 
@@ -19,7 +24,7 @@
     border-radius: 12px;    
 }
 
-img {
+.markdown img {
     border-radius: 12px;
 }
 

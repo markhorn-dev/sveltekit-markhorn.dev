@@ -7,6 +7,12 @@
     export let data;
     import LiveLink from '$lib/images/live-link.svg';
     import GithubLink from '$lib/images/github-link.svg';
+    import Carousel from '../../../components/Carousel.svelte';
+    import '../../../css/markdown.css';
+    import { onMount } from 'svelte';
+    import { fly } from 'svelte/transition';
+    let loaded = false;
+    onMount(() => loaded = true)
 </script>
 
 <div class="project container">
@@ -18,9 +24,20 @@
             <li>{tag}</li>
         {/each}
     </ul>
-    <div class="content">
-        {@html data.project.body}
-    </div>
+    {#key loaded}
+        <div in:fly={{
+            y: 200,
+            delay: 800
+        }}>
+            {#if data.project.slides.length > 0}
+                <Carousel slides={data.project.slides}/>
+            {/if}
+
+            <div class="content markdown">
+                {@html data.project.body}
+            </div>
+        </div>
+    {/key}
 </div>
 
 <style>

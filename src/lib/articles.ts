@@ -1,5 +1,6 @@
 import { basename, dirname } from 'path';
 import { formatDate } from './date';
+import { JSDOM } from 'jsdom';
 
 interface Article {
     slug: string;
@@ -38,10 +39,25 @@ async function getArticles() {
                 ...metadata 
             } as Article;
 
-            // TODO: Rewrite img urls in the body
-
+            //format the published date
             article.datePublished = formatDate(article.datePublished)
             .toUpperCase().replaceAll(',','');
+
+            // Rewrite img urls in the body
+            // article.png -> /images/articles/react-vs-svelte/article.png
+
+            const dom = new JSDOM(article.body);
+            const document = dom.window.document;
+            const imgElements = document.querySelectorAll('img');
+
+            imgElements.forEach(imgElement => {
+                const oldSrc = imgElement.getAttribute('src') || '';
+                const imageName = oldSrc.replace(/^.*[\\/]/, '');
+                const newSrc = `/images/articles/${article.slug}/${imageName}`;
+                imgElement.setAttribute('src', newSrc);
+                //console.log(oldSrc, imageName, '->', newSrc)
+            });
+            article.body = document.documentElement.outerHTML;
 
 			return article;
 		})

@@ -1,5 +1,14 @@
 <script>
+    import { onMount } from 'svelte';
+    import { fly } from 'svelte/transition';
+
     export let data;
+
+    let loaded = false;
+
+    onMount(() => {
+        loaded = true;
+    })
 </script>
 
 <svelte:head>
@@ -13,22 +22,30 @@
 <div class="projects container">
     <h1>Projects</h1>
     <p>Recent professional and personal projects.</p>
-    <ul class="projects">
-        {#each data.projects as project}
-            <li class="project">
-                <a href={project.href}>
-                    <img src={project.imgURL} alt=""/>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <ul class="tags">
-                        {#each project.tags as tag}
-                            <li class="tag">{tag}</li>
-                        {/each}
-                    </ul> 
-                </a>
-            </li>
-        {/each}
-    </ul>
+    
+        <ul class="projects">
+            {#each data.projects as project, index}
+            {#key loaded}
+                <li class="project" in:fly={{
+                    y: 200,
+                    delay: (index * 100) + 1000,
+                    duration: 500
+                }}>
+                    <a href={project.href}>
+                        <img src={project.imgURL} alt=""/>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        <ul class="tags">
+                            {#each project.tags as tag}
+                                <li class="tag">{tag}</li>
+                            {/each}
+                        </ul> 
+                    </a>
+                </li>
+                {/key}
+            {/each}
+        </ul>
+
 </div>
 
 <style>

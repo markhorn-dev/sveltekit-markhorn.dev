@@ -3,6 +3,8 @@
     let articles = data.articles;
     import Checked from "$lib/images/checked.svg";
     import Unchecked from "$lib/images/unchecked.svg";
+    import { onMount } from 'svelte';
+    import { fly } from 'svelte/transition';
 
     type Filters = {
         [key: string]: boolean;
@@ -32,6 +34,12 @@
         });
         articles = filteredData;
     }
+
+    let loaded = false;
+
+    onMount(() => {
+        loaded = true;
+    })
 </script>
 
 <svelte:head>
@@ -49,7 +57,8 @@
         <h4>FILTER</h4>
         <h5>SHOWING {articles.length} OF {data.articles.length} ARTICLES</h5>
         <div class="filters">
-            {#each data.tags as tag}
+            {#each data.tags as tag, index}
+                {#key loaded}
                 <div
                     class="control"
                     role="checkbox"
@@ -57,6 +66,11 @@
                     tabindex="0"
                     on:click={() => toggleFilter(tag)}
                     on:keydown={handleKeyPress}
+                    in:fly={{
+                        y: 200,
+                        delay: (index * 50) + 1000,
+                        duration: 500
+                    }}
                 >
                     <img
                         src={filters[tag] ? Checked : Unchecked}
@@ -68,23 +82,31 @@
                         {tag}
                     </div>
                 </div>
+                {/key}
             {/each}
         </div>
 
         <ul class="articles">
-            {#each articles as article}
-                <li class="article">
-                    <a href={"/articles/" + article.slug}>
-                        <h5>{article.datePublished}</h5>
-                        <h3>{article.title}</h3>
-                        <p>{article.description}</p>
-                        <ul class="tags">
-                            {#each article.tags as tag}
-                                <li class="tag">{tag}</li>
-                            {/each}
-                        </ul>
-                    </a>
-                </li>
+            
+            {#each articles as article, index}
+                {#key loaded}
+                    <li class="article" in:fly={{
+                        x: 200,
+                        delay: (index * 100) + 1000,
+                        duration: 500
+                    }}>
+                        <a href={"/articles/" + article.slug}>
+                            <h5>{article.datePublished}</h5>
+                            <h3>{article.title}</h3>
+                            <p>{article.description}</p>
+                            <ul class="tags">
+                                {#each article.tags as tag}
+                                    <li class="tag">{tag}</li>
+                                {/each}
+                            </ul>
+                        </a>
+                    </li>
+                {/key}
             {/each}
         </ul>
     </div>
